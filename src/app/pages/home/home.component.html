@@ -1,0 +1,11 @@
+<section class="container mt-4">
+  <h2>Listado de usuarios</h2>
+  <hr>
+  <div class="row g-3">
+    @for(usuario of arrUsuarios(); track usuario._id){
+    <article class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <app-user-card [usuario]="usuario" (deleteEmit)="eventDelete($event)"></app-user-card>
+    </article>
+    }
+  </div>
+</section>
