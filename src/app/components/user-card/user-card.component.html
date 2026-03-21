@@ -1,0 +1,16 @@
+<article class="card shadow h-100">
+  <figure class="m-0">
+    <img class="card-imagen" [src]="usuario()?.image" [alt]="usuario()?.first_name">
+  </figure>
+  <div class="card-body text-center">
+    <h5>{{usuario()?.first_name}} {{usuario()?.last_name}}</h5>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-sm btn-info"
+        [routerLink]="['/user', usuario()?._id]">Ver detalle</button>
+      <button type="button" class="btn btn-sm btn-warning"
+        [routerLink]="['/updateuser', usuario()?._id]">Actualizar</button>
+      <button type="button" class="btn btn-sm btn-danger"
+        (click)="deleteUsuario(usuario()?._id)">Borrar</button>
+    </div>
+  </div>
+</article>
