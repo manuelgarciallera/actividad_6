@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <h2>{{title}}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+    <div class="mb-3">
+      <label for="first_name" class="form-label">Nombre Usuario</label>
+      <input type="text" class="form-control" id="first_name" placeholder="Introduzca nombre de usuario" formControlName="first_name">
+      @if(checkControl('first_name', 'required')){
+      <p class="text-danger">Campo obligatorio</p>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="last_name" class="form-label">Apellido Usuario</label>
+      <input type="text" class="form-control" id="last_name" placeholder="Introduzca apellido de usuario" formControlName="last_name">
+      @if(checkControl('last_name', 'required')){
+      <p class="text-danger">Campo obligatorio</p>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Usuario</label>
+      <input type="text" class="form-control" id="email" placeholder="Introduzca email de usuario" formControlName="email">
+      @if(checkControl('email', 'required')){
+      <p class="text-danger">Campo obligatorio</p>
+      }
+      @if(checkControl('email', 'pattern')){
+      <p class="text-danger">El email no tiene un formato valido</p>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Imagen Usuario</label>
+      <input type="text" class="form-control" id="image" placeholder="Introduzca url de foto usuario" formControlName="image">
+      @if(checkControl('image', 'required')){
+      <p class="text-danger">Campo obligatorio</p>
+      }
+    </div>
+
+    <input type="submit" class="btn btn-danger" [value]="botonTexto" [disabled]="userForm.invalid">
+  </form>
+</div>
